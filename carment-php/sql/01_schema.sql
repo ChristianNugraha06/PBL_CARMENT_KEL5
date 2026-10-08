@@ -55,4 +55,7 @@ CREATE TABLE maintenance (
 
 INSERT INTO barang (nama, kategori, harga, deposit, spesifikasi, kondisi) VALUES
 ('Sony A7 III', 'Kamera', 250000, 1000000, 'Full-frame 24MP, 4K30, dual SD', 'Baik. Goresan halus di body bawah.'),
-('Canon EOS R6', 'Kamera', 300000, 1200000, 'Full-frame 20MP, IBIS, 4K60', 'Baik. Karet grip sedikit
+('Canon EOS R6', 'Kamera', 300000, 1200000, 'Full-frame 20MP, IBIS, 4K60', 'Baik. Karet grip sedikit aus.'),
+('Sony FE 24-70mm f/2.8 GM', 'Lensa', 150000, 800000, 'Zoom standar f/2.8, mount Sony E', 'Sangat baik.'),
+('Sigma 35mm f/1.4 Art', 'Lensa', 100000, 500000, 'Prime 35mm f/1.4', 'Baik. Tutup lensa belakang hilang.'),
+('DJI RS 3 Gimbal', 'Aksesori', 120000, 600000, 'Gimbal 3-axis, beban maks 3 kg', 'Baik. Lengkap dengan plate & tas.');
