@@ -27,3 +27,25 @@ if (fr) {
   fr.tgl_mulai.addEventListener("input", hitung);
   fr.tgl_selesai.addEventListener("input", hitung);
 }
+
+// >>> REVISI [BARU] #18: hitung mundur batas pelunasan (sampai akhir file)
+// Hitung mundur batas pelunasan (.hitung[data-sisa] dalam detik); reload saat habis agar status ter-update
+document.querySelectorAll(".hitung").forEach((el) => {
+  let s = +el.dataset.sisa;
+  const tampil = () => {
+    el.textContent =
+      String(Math.floor(s / 60)).padStart(2, "0") +
+      ":" +
+      String(s % 60).padStart(2, "0");
+  };
+  tampil();
+  const t = setInterval(() => {
+    s--;
+    if (s <= 0) {
+      clearInterval(t);
+      location.reload();
+      return;
+    }
+    tampil();
+  }, 1000);
+});

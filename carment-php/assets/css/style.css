@@ -39,7 +39,11 @@ select,
 textarea {
   font: inherit;
 }
+/* >>> REVISI #6 [UBAH] navbar tetap di atas (baris di bawah ini) */
 header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
   background: var(--ink);
   color: #fff;
   display: flex;
@@ -303,4 +307,38 @@ footer {
   .two {
     grid-template-columns: 1fr;
   }
+}
+/* >>> REVISI [BARU] #2 #14 #15: gaya tambahan (kalender abu, status baru, foto, peta) sampai akhir file */
+.cal .k {
+  background: #d9dde0;
+  color: #6b7378;
+}
+.Pembayaran {
+  background: #d69e2e;
+}
+.Dibatalkan {
+  background: #a0aec0;
+}
+.ph {
+  overflow: hidden;
+}
+.ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.foto {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-size: cover;
+  margin-bottom: 0.75rem;
+}
+.peta {
+  width: 100%;
+  height: 220px;
+  border: 0;
+  border-radius: 8px;
+  margin-top: 0.5rem;
 }
