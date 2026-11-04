@@ -14,9 +14,12 @@ if (!$u || !password_verify($_POST['password'] ?? '', $u['password'])) {
 session_regenerate_id(true);
 
 $_SESSION['user'] = [
-    'id'   => $u['id'], 
+    'id' => $u['id'], 
     'nama' => $u['nama'], 
     'role' => $u['role']
 ];
 
-redirect(['staff' => 'reservasi/list.php', 'owner' => 'laporan/index.php'][$u['role']] ?? 'index.php');
+redirect([
+    'staff' => 'reservasi/list.php', 
+    'owner' => 'laporan/index.php'
+][$u['role']] ?? 'index.php');

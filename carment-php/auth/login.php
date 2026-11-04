@@ -7,21 +7,21 @@ require __DIR__ . '/../includes/header.php';
     <h2>Masuk ke CARMENT</h2>
     <form method="post" action="proses_login.php">
         <?= csrf_field() ?>
-        
         <label for="email">Email</label>
         <input id="email" name="email" type="email" required>
         
         <label for="pw">Kata sandi</label>
         <input id="pw" name="password" type="password" required>
         
-        <p>
-            <button class="btn">Masuk</button>
-        </p>
+        <p><button class="btn">Masuk</button></p>
     </form>
-    
+
+    <?php /* >>> REVISI #12 [UBAH] tautan lupa kata sandi (baris di bawah ini) */ ?>
     <p class="mut">
-        Belum punya akun? <a href="register.php">Daftar</a>
+        Belum punya akun? <a href="register.php">Daftar</a> &middot; <a href="lupa.php">Lupa kata sandi?</a>
     </p>
 </div>
 
-<?php require __DIR__ . '/../includes/footer.php'; ?>
+<?php 
+require __DIR__ . '/../includes/footer.php'; 
+?>

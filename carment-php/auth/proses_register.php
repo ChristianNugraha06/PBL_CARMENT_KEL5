@@ -22,6 +22,6 @@ if ($c->fetch()) {
 
 $pdo->prepare("INSERT INTO users(nama,email,hp,password,role) VALUES(?,?,?,?, 'customer')")
     ->execute([$n, $e, $h, password_hash($p, PASSWORD_DEFAULT)]);
-
+    
 flash('Akun dibuat. Silakan masuk.'); 
 redirect('auth/login.php');
