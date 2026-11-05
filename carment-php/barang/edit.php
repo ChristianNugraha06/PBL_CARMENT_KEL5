@@ -7,9 +7,15 @@ $s = $pdo->prepare('SELECT * FROM barang WHERE id=?');
 $s->execute([(int)($_GET['id'] ?? 0)]); 
 $b = $s->fetch();
 
-if (!$b) {
+// >>> REVISI #8 [UBAH] tolak edit saat unit disewa (baris di bawah ini)
+if (!$b) { 
     redirect('barang/list.php'); 
-}
+} 
+
+if (sedang_disewa($b['id'])) { 
+    flash('Unit sedang disewa, tidak bisa diedit selama masa rental.'); 
+    redirect('barang/list.php'); 
+} 
 
 $aksi = 'proses_edit.php'; 
 ?>
