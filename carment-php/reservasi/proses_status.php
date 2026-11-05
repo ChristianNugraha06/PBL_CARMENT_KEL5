@@ -8,8 +8,8 @@ $aksi = $_POST['aksi'] ?? '';
 
 $map = [
     'konfirmasi' => ['Menunggu', 'Dikonfirmasi'], 
-    'tolak'      => ['Menunggu', 'Ditolak'], 
-    'serahkan'   => ['Dikonfirmasi', 'Dipinjam']
+    'tolak' => ['Menunggu', 'Ditolak'], 
+    'serahkan' => ['Dikonfirmasi', 'Dipinjam']
 ];
 
 if (!isset($map[$aksi])) { 
@@ -23,8 +23,7 @@ $s = $pdo->prepare('UPDATE reservasi SET status=? WHERE id=? AND status=?');
 $s->execute([$ke, $id, $dari]);
 
 if ($ke === 'Dipinjam' && $s->rowCount()) {
-    $pdo->prepare("UPDATE barang SET status='Rented' WHERE id=(SELECT barang_id FROM reservasi WHERE id=?)")
-        ->execute([$id]);
+    $pdo->prepare("UPDATE barang SET status='Rented' WHERE id=(SELECT barang_id FROM reservasi WHERE id=?)")->execute([$id]);
 }
 
 flash("Status reservasi diubah: $ke."); 
