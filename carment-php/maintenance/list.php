@@ -17,6 +17,7 @@ $rows = $pdo->query('SELECT m.*, b.nama FROM maintenance m JOIN barang b ON b.id
             <th>Status</th>
             <th>Aksi</th>
         </tr>
+        
         <?php foreach ($rows as $m): ?>
             <tr>
                 <td><?= e($m['nama']) ?></td>
@@ -34,12 +35,15 @@ $rows = $pdo->query('SELECT m.*, b.nama FROM maintenance m JOIN barang b ON b.id
                 </td>
             </tr>
         <?php endforeach; ?>
-        <?php if (!$rows): ?>
-            <tr>
-                <td colspan="5">Belum ada tiket.</td>
-            </tr>
-        <?php endif; ?>
+        
+        <?php 
+        if (!$rows) {
+            echo '<tr><td colspan="5">Belum ada tiket.</td></tr>'; 
+        }
+        ?>
     </table>
 </div>
 
-<?php require __DIR__ . '/../includes/footer.php'; ?>
+<?php 
+require __DIR__ . '/../includes/footer.php'; 
+?>
