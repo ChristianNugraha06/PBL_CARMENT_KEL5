@@ -1,8 +1,8 @@
 <?php
-// >>> REVISI [BARU] buffer output + zona waktu (perbaikan bug redirect) (blok sampai tanda AKHIR)
-ob_start(); // buffer: redirect() aman dipanggil setelah header.php
+// buffer output + zona waktu (perbaikan bug redirect)
+ob_start(); // buffer: redirect()
 date_default_timezone_set('Asia/Jakarta');
-// <<< AKHIR REVISI
+
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -29,7 +29,7 @@ try {
         ]
     );
     
-    // >>> REVISI [BARU] zona waktu PostgreSQL (baris di bawah ini)
+    // zona waktu PostgreSQL 
     $pdo->exec("SET TIME ZONE 'Asia/Jakarta'");
 } catch (PDOException $e) { 
     exit('Koneksi database gagal. Periksa includes/koneksi.php dan ekstensi pdo_pgsql.'); 
