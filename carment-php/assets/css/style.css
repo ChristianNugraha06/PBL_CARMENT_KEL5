@@ -39,7 +39,7 @@ select,
 textarea {
   font: inherit;
 }
-/* >>> REVISI #6 [UBAH] navbar tetap di atas (baris di bawah ini) */
+/* navbar tetap di atas */
 header {
   position: sticky;
   top: 0;
@@ -308,7 +308,7 @@ footer {
     grid-template-columns: 1fr;
   }
 }
-/* >>> REVISI [BARU] #2 #14 #15: gaya tambahan (kalender abu, status baru, foto, peta) sampai akhir file */
+/* gaya tambahan (kalender abu, status baru, foto, peta) */
 .cal .k {
   background: #d9dde0;
   color: #6b7378;
@@ -341,4 +341,208 @@ footer {
   border: 0;
   border-radius: 8px;
   margin-top: 0.5rem;
+}
+
+/* gaya popup (dialog) dan banner toko */
+dialog {
+  border: 0;
+  border-radius: 12px;
+  padding: 0;
+  max-width: min(680px, 94vw);
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+dialog::backdrop {
+  background: rgba(16, 38, 43, 0.6);
+}
+.dlg {
+  padding: 1.25rem;
+}
+.dlg-aksi {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+.v-bukti {
+  background: #eef1f0;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  max-height: 55vh;
+  overflow: auto;
+}
+.v-bukti img {
+  max-width: 100%;
+  max-height: 55vh;
+  display: block;
+}
+.v-bukti iframe {
+  width: 100%;
+  height: 55vh;
+  border: 0;
+}
+.banner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  background: linear-gradient(120deg, #0b464c, #10262b);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border-radius: 14px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+.banner h2 {
+  font-size: 1.7rem;
+  line-height: 1.25;
+}
+.banner .poin {
+  padding-left: 1.1rem;
+  margin: 0.5rem 0;
+}
+.banner .syarat {
+  color: #f4d58a;
+}
+.banner-jam {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 1rem;
+}
+.banner-jam h3 {
+  margin-bottom: 0.5rem;
+}
+.jam {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.jam td {
+  padding: 0.2rem 0;
+}
+.jam td:last-child {
+  text-align: right;
+}
+.jam .hari-ini {
+  color: var(--acc);
+  font-weight: 700;
+}
+.lokasi {
+  margin-top: 2rem;
+}
+@media (max-width: 720px) {
+  .banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* kalender bulanan, legenda, dan tombol minimalis */
+.kal-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0.75rem;
+}
+.kal-nav select {
+  width: auto;
+  padding: 0.3rem 0.5rem;
+}
+.kal-nav input {
+  display: none;
+}
+.cal-bulan b {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--mut);
+  padding: 0.2rem 0;
+}
+.cal-bulan span {
+  display: block;
+}
+.cal-bulan div {
+  padding: 0.5rem 0;
+}
+.cal .l {
+  background: transparent;
+  color: #aab3b6;
+}
+.cal .h {
+  outline: 2px solid var(--pri);
+  outline-offset: -2px;
+  font-weight: 700;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  color: var(--mut);
+}
+.legend .sw {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 3px;
+  background: #e3f3ea;
+  margin-right: 0.3rem;
+  vertical-align: -1px;
+}
+.legend .sw.x {
+  background: #f6d6d2;
+}
+.legend .sw.k {
+  background: #d9dde0;
+}
+.legend .sw.l {
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.btn-min {
+  display: inline-block;
+  background: transparent;
+  color: var(--pri);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-min:hover {
+  border-color: var(--pri);
+  background: #e8f0ef;
+}
+.btn-min.off {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.lap-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+.lap-bar label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  font-weight: 500;
+}
+.lap-bar input {
+  width: auto;
+  padding: 0.25rem 0.45rem;
+  font-size: 0.85rem;
 }

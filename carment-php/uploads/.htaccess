@@ -1,0 +1,5 @@
+# >>> REVISI [FILE BARU] R2 #1: bukti hanya diakses lewat reservasi/bukti.php (Apache/XAMPP)
+Require all denied
+<IfModule !mod_authz_core.c>
+  Deny from all
+</IfModule>

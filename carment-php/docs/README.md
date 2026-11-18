@@ -6,65 +6,22 @@
 Akun demo (sandi `password`): customer@carment.id, staff@carment.id, owner@carment.id, faiq@carment.id, widi@carment.id
 Versi MySQL lama ada di `sql/_mysql_lama/` (tidak dipakai).
 
-# Struktur folder
-carment-php/
-├── index.php                  Katalog (cari + filter kategori), halaman utama
-│
-├── assets/
-│   ├── css/style.css          Seluruh gaya tampilan
-│   └── js/app.js              Hitung biaya sewa langsung + konfirmasi hapus
-│
-├── auth/
-│   ├── login.php              Form masuk
-│   ├── proses_login.php       Verifikasi sandi, buat sesi, arahkan sesuai peran
-│   ├── register.php           Form daftar pelanggan
-│   ├── proses_register.php    Simpan akun baru (sandi di-hash)
-│   └── logout.php             Hapus sesi
-│
-├── barang/                    Katalog dan kelola unit
-│   ├── detail.php             Detail unit, kalender ketersediaan, form reservasi
-│   ├── list.php               Tabel kelola barang (staff)
-│   ├── tambah.php             Form tambah unit
-│   ├── proses_tambah.php
-│   ├── edit.php               Form edit unit
-│   ├── proses_edit.php
-│   ├── hapus.php
-│   └── _form.php              Form bersama untuk tambah dan edit
-│
-├── reservasi/
-│   ├── proses_tambah.php      Validasi tanggal, cek bentrok, simpan bukti transfer
-│   ├── riwayat.php            Riwayat sewa pelanggan
-│   ├── list.php               Reservasi aktif dan serah-terima (staff)
-│   └── proses_status.php      Konfirmasi, tolak, serahkan barang
-│
-├── inspeksi/
-│   ├── form.php               Checklist inspeksi pengembalian
-│   └── proses.php             Hitung denda, set unit Available atau Maintenance
-│
-├── maintenance/
-│   ├── list.php               Daftar tiket maintenance
-│   └── proses_selesai.php     Tandai perbaikan selesai
-│
-├── laporan/
-│   └── index.php              Laporan Owner: pendapatan, denda, grafik, transaksi
-│
-├── includes/                  File bersama yang di-require halaman lain
-│   ├── koneksi.php            Koneksi PostgreSQL (PDO), sesi, BASE_URL
-│   ├── auth.php               Cek login dan peran (wajib_login)
-│   ├── csrf.php               Token CSRF
-│   ├── helpers.php            e(), rp(), redirect(), flash(), badge(), konstanta denda
-│   ├── header.php             Pembuka HTML + navigasi per peran
-│   └── footer.php             Penutup HTML + pemanggil app.js
-│
-├── sql/
-│   ├── 01_schema.sql          Tabel + data unit awal (PostgreSQL)
-│   ├── 02_users.sql           Akun staff, owner, customer
-│   ├── 03_demo_data.sql       Data demo: reservasi, inspeksi, maintenance
-│   └── _mysql_lama/           Versi MySQL sebelumnya (tidak dipakai)
-│
-├── uploads/
-│   ├── demo-bukti.png         Gambar placeholder bukti transfer demo
-│   └── .gitkeep               Bukti transfer asli tersimpan di sini
-│
-└── docs/
-    └── README.md              Panduan setup singkat
+## Revisi (langkah tambahan)
+- Jalankan `sql/04_revisi.sql` setelah 01, 02, 03.
+- Folder `gambar/asli` dan `gambar/thumb` harus bisa ditulis PHP; thumbnail butuh ekstensi `gd` (`php -m | grep gd`).
+- Ganti alamat, koordinat, dan rekening toko di bagian atas revisi `includes/helpers.php` (TOKO_*, REK_*).
+- `MODE_DEMO_EMAIL=true` membuat pemulihan akun langsung membuka halaman atur ulang (tanpa email). Set `false` + konfigurasi mail untuk produksi.
+
+## Menemukan bagian revisi
+Cari teks `REVISI` (VS Code: Ctrl+Shift+F). Penanda: `[FILE BARU]` = seluruh file baru, `[BARU]` = blok baru di file lama, `[UBAH]` = bagian lama yang dimodifikasi; angka `#n` = nomor revisi. Blok diawali `>>> REVISI` dan diakhiri `<<< AKHIR REVISI`; jika hanya ada penanda awal, yang berubah adalah baris tepat di bawahnya.
+
+## Revisi putaran 2
+- Jalankan `sql/05_revisi2.sql` setelah 04.
+- Penanda baru memakai awalan `R2 #n` (cari `R2 #` untuk melihat semua bagian putaran ini).
+- Isi profil dan jam buka toko di bagian `R2 #7` pada `includes/helpers.php` (TOKO_NAMA, TOKO_DESKRIPSI, TOKO_JAM). Opsional: taruh `gambar/banner.jpg` untuk gambar latar banner.
+- Bukti pembayaran hanya bisa dibuka lewat `reservasi/bukti.php` (cek hak akses). Di Apache, `uploads/.htaccess` memblokir akses langsung.
+
+## Revisi putaran 3
+- Jalankan `sql/06_revisi3.sql` setelah 05. Penanda baru memakai awalan `R3 #` (cari `R3 #`).
+- Jadwal buka toko kini diedit staff lewat menu **Jadwal toko** (tabel `jam_toko`); konstanta `TOKO_JAM` di `helpers.php` hanya cadangan jika tabel belum ada.
+- Kalender unit berupa kalender bulanan; bulan dan tahun dipilih lewat dropdown (tahun ini sampai 3 tahun ke depan).
