@@ -1,29 +1,20 @@
 <?php
-$judul = 'Masuk';
+$judul = 'Masuk'; /* saat sudah login: dialihkan ke halaman utama */
+require_once __DIR__ . '/../includes/auth.php';
+wajib_tamu();
 require __DIR__ . '/../includes/header.php';
 ?>
-
 <div class="card narrow">
-  <h2>Masuk ke CARMENT</h2>
-  <form method="post" action="proses_login.php">
-    <?= csrf_field() ?>
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" required>
-    
-    <label for="pw">Kata sandi</label>
-    <input id="pw" name="password" type="password" required>
-    
-    <p>
-      <button class="btn">Masuk</button>
-    </p>
-  </form>
-
-  <?php /* tautan lupa kata sandi */ ?>
-  <p class="mut">
-    Belum punya akun? <a href="register.php">Daftar</a> &middot; <a href="lupa.php">Lupa kata sandi?</a>
-  </p>
+    <h2>Masuk ke CARMENT</h2>
+    <form method="post" action="proses_login.php">
+        <?= csrf_field() ?>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required>
+        <label for="pw">Kata sandi</label>
+        <input id="pw" name="password" type="password" required>
+        <p><button class="btn">Masuk</button></p>
+    </form>
+    <?php /* tautan lupa kata sandi */ ?>
+    <p class="mut">Belum punya akun? <a href="register.php">Daftar</a> &middot; <a href="lupa.php">Lupa kata sandi?</a></p>
 </div>
-
-<?php
-require __DIR__ . '/../includes/footer.php';
-?>
+<?php require __DIR__ . '/../includes/footer.php'; ?>

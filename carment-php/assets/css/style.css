@@ -546,3 +546,548 @@ dialog::backdrop {
   padding: 0.25rem 0.45rem;
   font-size: 0.85rem;
 }
+
+/* label peran, popup di tengah layar, warna status baru */
+.peran {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.6rem;
+  border-radius: 99px;
+  background: #fff;
+  color: var(--ink);
+}
+.peran-staff {
+  background: #7fb3ff;
+}
+.peran-owner {
+  background: var(--acc);
+}
+body.role-staff header {
+  border-bottom: 3px solid #7fb3ff;
+}
+body.role-owner header {
+  border-bottom: 3px solid var(--acc);
+}
+.user-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.user-link:hover {
+  text-decoration: underline;
+}
+dialog[open] {
+  margin: auto;
+  inset: 0;
+  height: fit-content;
+}
+.Perbaikan {
+  background: #d69e2e;
+  color: #fff;
+}
+.Refund {
+  background: #b7791f;
+  color: #fff;
+}
+.Dikembalikan {
+  background: #4a5568;
+  color: #fff;
+}
+
+/* tampilan lebih halus & elegan (animasi lembut, bayangan, transisi), tombol WhatsApp, lihat sandi, feedback, form refund */
+:root {
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --bayang: 0 1px 2px rgba(16, 38, 43, 0.05), 0 8px 24px rgba(16, 38, 43, 0.07);
+  --bayang-naik:
+    0 2px 6px rgba(16, 38, 43, 0.08), 0 18px 40px rgba(16, 38, 43, 0.14);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: linear-gradient(180deg, #f4f7f6 0, #e9eeed 100%) fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1,
+h2,
+h3 {
+  letter-spacing: -0.012em;
+}
+@view-transition {
+  navigation: auto;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.28s;
+}
+@keyframes naik {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes muncul {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes turun {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes skala {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes denyut {
+  0% {
+    box-shadow:
+      0 8px 24px rgba(37, 211, 102, 0.4),
+      0 0 0 0 rgba(37, 211, 102, 0.45);
+  }
+  70% {
+    box-shadow:
+      0 8px 24px rgba(37, 211, 102, 0.4),
+      0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow:
+      0 8px 24px rgba(37, 211, 102, 0.4),
+      0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+@keyframes cahaya {
+  from {
+    transform: translate3d(-4%, 0, 0);
+  }
+  to {
+    transform: translate3d(4%, 6%, 0);
+  }
+}
+main > *:not(.grid) {
+  animation: naik 0.6s var(--ease) both;
+}
+main > *:nth-child(2) {
+  animation-delay: 0.05s;
+}
+main > *:nth-child(3) {
+  animation-delay: 0.1s;
+}
+main > *:nth-child(4) {
+  animation-delay: 0.15s;
+}
+main > *:nth-child(n + 5) {
+  animation-delay: 0.2s;
+}
+main > .info {
+  animation: turun 0.5s var(--ease) both;
+}
+.grid > .card:nth-child(-n + 8) {
+  animation: naik 0.55s var(--ease) both;
+}
+.grid > .card:nth-child(1) {
+  animation-delay: 0.06s;
+}
+.grid > .card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+.grid > .card:nth-child(3) {
+  animation-delay: 0.18s;
+}
+.grid > .card:nth-child(4) {
+  animation-delay: 0.24s;
+}
+.grid > .card:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.grid > .card:nth-child(6) {
+  animation-delay: 0.36s;
+}
+.grid > .card:nth-child(7) {
+  animation-delay: 0.42s;
+}
+.grid > .card:nth-child(8) {
+  animation-delay: 0.48s;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+.reveal.tampak {
+  opacity: 1;
+  transform: none;
+}
+header {
+  transition: box-shadow 0.35s var(--ease);
+}
+header.scrolled {
+  box-shadow: 0 8px 28px rgba(16, 38, 43, 0.28);
+}
+nav a {
+  position: relative;
+  transition: color 0.2s;
+}
+nav a:hover {
+  text-decoration: none;
+}
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--acc);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+nav a:hover::after {
+  transform: scaleX(1);
+}
+.brand {
+  transition: opacity 0.2s;
+}
+.brand:hover {
+  opacity: 0.85;
+}
+.card {
+  border-radius: 14px;
+  box-shadow: var(--bayang);
+  transition:
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--bayang-naik);
+}
+.ph img {
+  transition: transform 0.8s var(--ease);
+}
+.item:hover .ph img {
+  transform: scale(1.07);
+}
+.btn {
+  border-radius: 10px;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 92, 99, 0.25);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+.btn.bad:hover {
+  box-shadow: 0 8px 18px rgba(192, 57, 43, 0.28);
+}
+.btn-min {
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.2s var(--ease);
+}
+.btn-min:active {
+  transform: scale(0.97);
+}
+input,
+select,
+textarea {
+  border-radius: 10px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.25s,
+    background 0.2s;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--pri);
+  box-shadow: 0 0 0 4px rgba(15, 92, 99, 0.14);
+}
+.tbl {
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--bayang);
+}
+.tbl tr {
+  transition: background 0.2s;
+}
+.tbl tr:hover td {
+  background: #f4f8f7;
+}
+.badge {
+  transition: transform 0.25s var(--ease);
+}
+.cal-bulan div {
+  transition:
+    transform 0.2s var(--ease),
+    box-shadow 0.2s;
+}
+.cal-bulan div:not(.l):hover {
+  transform: scale(1.1);
+  box-shadow: var(--bayang);
+  position: relative;
+  z-index: 1;
+}
+dialog {
+  border-radius: 16px;
+}
+dialog[open] {
+  animation: skala 0.3s var(--ease);
+}
+dialog::backdrop {
+  background: rgba(16, 38, 43, 0.55);
+  backdrop-filter: blur(3px);
+  animation: muncul 0.3s ease;
+}
+.banner {
+  border-radius: 18px;
+  box-shadow: var(--bayang-naik);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      520px 260px at 78% 8%,
+      rgba(255, 255, 255, 0.14),
+      transparent 70%
+    ),
+    radial-gradient(
+      420px 220px at 12% 96%,
+      rgba(232, 163, 23, 0.16),
+      transparent 70%
+    );
+  animation: cahaya 16s ease-in-out infinite alternate;
+}
+.banner-jam {
+  backdrop-filter: blur(6px);
+}
+/* #2 tombol WhatsApp */
+.wa-float {
+  position: fixed;
+  right: 1.1rem;
+  bottom: 1.1rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #25d366;
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  animation: denyut 2.8s ease-out infinite;
+  transition:
+    transform 0.3s var(--ease),
+    background 0.25s;
+}
+.wa-float svg {
+  width: 22px;
+  height: 22px;
+}
+.wa-float:hover {
+  transform: translateY(-3px);
+  background: #1fb958;
+  animation: none;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.5);
+}
+@media (max-width: 560px) {
+  .wa-float span {
+    display: none;
+  }
+  .wa-float {
+    padding: 0.85rem;
+  }
+}
+.tanya {
+  margin-top: 0.5rem;
+}
+/* #3 lihat sandi */
+.sandi-wrap {
+  position: relative;
+  display: block;
+}
+.sandi-wrap input {
+  padding-right: 2.9rem;
+}
+.lihat-sandi {
+  position: absolute;
+  right: 0.35rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--mut);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.lihat-sandi:hover {
+  color: var(--pri);
+  background: #e8f0ef;
+}
+.lihat-sandi svg {
+  width: 20px;
+  height: 20px;
+}
+.kode-input {
+  text-align: center;
+  letter-spacing: 0.5em;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: Sora, system-ui, sans-serif;
+}
+/* #5 feedback */
+.feedback {
+  margin-top: 2rem;
+}
+.bintang {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 0.15rem;
+  border: 0;
+  padding: 0;
+  margin: 0.35rem 0;
+}
+.bintang input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.bintang label {
+  font-size: 2rem;
+  line-height: 1;
+  color: #c9d2d1;
+  cursor: pointer;
+  margin: 0;
+  font-weight: 400;
+  transition:
+    color 0.15s,
+    transform 0.25s var(--ease);
+}
+.bintang label:hover,
+.bintang label:hover ~ label,
+.bintang input:checked ~ label {
+  color: #f5b301;
+}
+.bintang label:hover {
+  transform: scale(1.18);
+}
+.bintang input:focus-visible + label {
+  outline: 3px solid var(--acc);
+  border-radius: 4px;
+}
+.bintang-tampil {
+  color: #f5b301;
+  letter-spacing: 0.08em;
+}
+.ulasan {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.ulasan blockquote {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: #f4f8f7;
+  border-radius: 12px;
+  border-left: 3px solid var(--acc);
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease);
+}
+.ulasan blockquote:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--bayang);
+}
+.ulasan blockquote p {
+  margin: 0.35rem 0;
+}
+.ulasan cite {
+  font-size: 0.85rem;
+  color: var(--mut);
+  font-style: normal;
+}
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+/* form unggah bukti refund (staff) */
+.form-refund {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+  max-width: 260px;
+}
+.form-refund input[type="file"] {
+  font-size: 0.8rem;
+  padding: 0.35rem;
+}
+/* pengaturan "kurangi gerakan" pengguna */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
