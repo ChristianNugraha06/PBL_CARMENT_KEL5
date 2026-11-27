@@ -1,0 +1,33 @@
+# ============================================================
+# .dockerignore — CARMENT (PHP native + PostgreSQL)
+# Tujuan: build context kecil, tanpa riwayat git, tanpa rahasia.
+# CATATAN: file ini hanya dibaca Docker builder. Bukan .gitignore.
+# ============================================================
+
+# --- riwayat git: 3.3 MB, tidak dipakai build, dan berisi password DB lama ---
+.git
+.gitignore
+
+# --- arsip & sampah OS ---
+**/*.zip
+**/.DS_Store
+**/Thumbs.db
+**/desktop.ini
+
+# --- dokumentasi: tidak dibutuhkan saat runtime ---
+# (hapus baris ini kalau ingin docs/README.md tetap ada di dalam image)
+**/docs
+
+# --- rahasia lokal: jangan pernah masuk image ---
+**/config.local.php
+**/.env
+**/.env.*
+
+# --- sisa uji lokal / dependency ---
+**/*.log
+**/node_modules
+**/vendor
+
+# --- JANGAN tambahkan pola seperti **/.* atau **/.htaccess ---
+# Itu akan membuang uploads/.htaccess (proteksi bukti transfer)
+# dan .gitkeep (folder gambar/asli, gambar/thumb, uploads harus tetap ada).
