@@ -1,0 +1,6 @@
+<?php
+defined('DB_HOST') || define('DB_HOST', 'localhost');
+defined('DB_PORT') || define('DB_PORT', '5432');
+defined('DB_NAME') || define('DB_NAME', 'carment');
+defined('DB_USER') || define('DB_USER', 'postgres');
+defined('DB_PASS') || define('DB_PASS', 'isi_sandi_di_sini');

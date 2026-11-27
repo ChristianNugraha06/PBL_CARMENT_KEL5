@@ -1,0 +1,14 @@
+# kredensial lokal
+includes/config.local.php
+
+# file hasil upload
+uploads/*
+!uploads/.gitkeep
+!uploads/.htaccess
+gambar/asli/*
+gambar/thumb/*
+!gambar/asli/.gitkeep
+!gambar/thumb/.gitkeep
+
+# file tes
+tes_db.php
