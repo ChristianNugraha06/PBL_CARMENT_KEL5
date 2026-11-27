@@ -41,9 +41,9 @@ function tgl_valid($d)
 }
 
 // seluruh blok di bawah ini kode baru 
-const TOKO_ALAMAT = 'Jl. Contoh No. 10, Malang'; // GANTI dengan alamat asli toko
-const TOKO_LAT = -7.9466;
-const TOKO_LNG = 112.6147; // GANTI koordinat toko (klik kanan di Google Maps)
+const TOKO_ALAMAT = 'Jl. Kyai Parseh Jaya 49-56, Bumiayu, kec. Kedungkandang, Kota Malang, Jawa Timur 65135'; // GANTI dengan alamat asli toko
+const TOKO_LAT = -8.01424023945318;
+const TOKO_LNG = 112.63522689975508; // GANTI koordinat toko (klik kanan di Google Maps)
 const REK_BANK = 'BCA';
 const REK_NO = '1234567890';
 const REK_AN = 'CARMENT Rental'; // GANTI rekening toko
@@ -155,7 +155,7 @@ function jam_toko()
 const BATAS_PERBAIKAN_JAM = 24; // selama itu tanggal tetap terkunci (abu-abu); lewat batas -> otomatis jadi "Menunggu Refund"
 
 // WhatsApp staff, pengaturan email/SMTP, aturan kode verifikasi, helper
-defined('WA_STAFF') || define('WA_STAFF', '6281234567890');          // GANTI: nomor WhatsApp staff, format internasional tanpa tanda +
+defined('WA_STAFF') || define('WA_STAFF', '6285179738659');          // GANTI: nomor WhatsApp staff, format internasional tanpa tanda +
 defined('SMTP_HOST') || define('SMTP_HOST', '');                      // kosong = pakai mail() bawaan PHP; isi mis. smtp.gmail.com untuk SMTP
 defined('SMTP_PORT') || define('SMTP_PORT', 587);
 defined('SMTP_USER') || define('SMTP_USER', '');
