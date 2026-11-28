@@ -1131,4 +1131,44 @@ header.scrolled {
     font-size: 0.8rem;
   }
 }
+/* burger menu (HP): brand + burger satu baris, menu & akun muncul saat dibuka */
+.burger-ck {
+  display: none;
+}
+.burger {
+  display: none;
+  margin: 0 0 0 auto;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+}
+@media (max-width: 720px) {
+  .burger {
+    display: block;
+  }
+  .burger-ck:not(:checked) ~ nav,
+  .burger-ck:not(:checked) ~ .aksi {
+    display: none;
+  }
+  .burger-ck:checked ~ nav {
+    flex: 1 0 100%;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .burger-ck:checked ~ nav a {
+    padding: 0.45rem 0;
+  }
+  .burger-ck:checked ~ .aksi {
+    flex: 1 0 100%;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
 
