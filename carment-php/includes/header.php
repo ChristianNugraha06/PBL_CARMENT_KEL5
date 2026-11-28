@@ -55,13 +55,18 @@ $judul = $judul ?? 'CARMENT';
         <?php /* nama user menjadi tautan profil  */ ?>
         <?php /* label peran + popup konfirmasi keluar  */ ?>
         <?php if ($u): ?>
-            <span class="peran peran-<?= e($u['role']) ?>"><?= e(nama_peran($u['role'])) ?></span>
-            <a class="user-link" href="<?= BASE_URL ?>auth/profil.php"><?= e($u['nama']) ?></a>
-            <a class="btn alt sm" href="<?= BASE_URL ?>auth/logout.php" data-popup="Keluar dari akun ini?" data-ya="Ya, keluar">Keluar</a>
+             <span class="aksi">
+                <span class="peran peran-<?= e($u['role']) ?>"><?= e(nama_peran($u['role'])) ?></span>
+                <a class="user-link" href="<?= BASE_URL ?>auth/profil.php"><?= e($u['nama']) ?></a>
+                <a class="btn alt sm" href="<?= BASE_URL ?>auth/logout.php" data-popup="Keluar dari akun ini?" data-ya="Ya, keluar">Keluar</a>
+            </span>
         <?php else: ?>
-            <a class="btn alt sm" href="<?= BASE_URL ?>auth/login.php">Masuk</a>
-            <a class="btn sm" href="<?= BASE_URL ?>auth/register.php">Daftar</a>
+             <span class="aksi">
+                <a class="btn alt sm" href="<?= BASE_URL ?>auth/login.php">Masuk</a>
+                <a class="btn sm" href="<?= BASE_URL ?>auth/register.php">Daftar</a>
+             </span>
         <?php endif; ?>
+
     </header>
     <main>
         <?php if ($f = flash()): ?>

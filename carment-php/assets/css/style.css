@@ -1091,3 +1091,44 @@ dialog::backdrop {
     transform: none;
   }
 }
+/* navbar ringkas: badge peran sejajar dengan nama, tombol akun satu baris */
+.aksi {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+header {
+  transition:
+    box-shadow 0.35s var(--ease),
+    padding 0.25s var(--ease);
+}
+header.scrolled {
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+@media (max-width: 720px) {
+  header {
+    padding: 0.55rem 0.85rem;
+    gap: 0.4rem 1rem;
+  }
+  header.scrolled {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+  nav {
+    gap: 0.7rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+  }
+  .brand {
+    font-size: 1.15rem;
+  }
+  .aksi .btn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
