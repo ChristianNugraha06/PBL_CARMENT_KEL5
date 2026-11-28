@@ -218,17 +218,4 @@ document.querySelectorAll(".hitung").forEach((el) => {
         }
       });
   }
-  
 })();
-
-// label kolom tabel agar tampil sebagai judul baris di HP
-document.querySelectorAll(".tbl").forEach((t) => {
-  const h = [...t.querySelectorAll("th")].map((x) => x.textContent.trim());
-  t.querySelectorAll("tr").forEach((r) => {
-    if (r.cells.length === h.length)
-      [...r.cells].forEach((c, i) => c.tagName === "TD" && (c.dataset.label = h[i]));
-  });
-});
-
-
-

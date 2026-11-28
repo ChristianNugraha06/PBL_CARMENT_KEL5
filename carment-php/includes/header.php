@@ -20,8 +20,6 @@ $judul = $judul ?? 'CARMENT';
     <?php /* logo mengarah ke halaman utama sesuai peran */ ?>
     <header>
         <a class="brand" href="<?= BASE_URL . ($u ? halaman_utama($u['role']) : 'index.php') ?>">CAR<b>MENT</b></a>
-        <input type="checkbox" id="menu-tgl" class="burger-ck">
-        <label class="burger" for="menu-tgl" aria-label="Menu">☰</label>
         <nav>
             <?php /* menu Katalog hanya untuk pengunjung/pelanggan  */ ?>
             <?php if (!$u || $u['role'] === 'customer'): ?>
