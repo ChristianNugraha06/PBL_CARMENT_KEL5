@@ -1090,4 +1090,25 @@ dialog::backdrop {
     opacity: 1;
     transform: none;
   }
+  
 }
+.burger { display: none; margin-left: auto; background: none; border: 1px solid #ffffff55;
+  color: #fff; border-radius: 8px; font-size: 1.3rem; padding: .15rem .6rem; cursor: pointer; }
+
+@media (max-width: 720px) {
+  header { padding: .6rem 1rem; }
+  .burger { display: block; }
+  header:not(.open) > :not(.brand):not(.burger) { display: none; }
+  header.open nav { flex-direction: column; flex-basis: 100%; gap: .6rem; }
+  header.open nav a { padding: .35rem 0; }
+
+  .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; }
+  .tbl tr:has(> th) { display: none; }
+  .tbl tr { padding: .5rem .8rem; border-bottom: 1px solid var(--line); }
+  .tbl td { display: flex; justify-content: space-between; align-items: center;
+    gap: 1rem; text-align: right; border: 0; padding: .3rem 0; }
+  .tbl td[data-label]::before { content: attr(data-label); font-weight: 600;
+    color: var(--mut); text-align: left; }
+  main { padding: 1rem .75rem 2.5rem; }
+}
+
