@@ -11,7 +11,8 @@ $judul = $judul ?? 'CARMENT';
     <title><?= e($judul) ?> - CARMENT</title>
     <?php /* tampilan dikembalikan ke gaya sebelum tema Uniqlo: font Sora + Public Sans, tanpa tema.css */ ?>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css?v=<?= filemtime(__DIR__ . '/../assets/css/style.css') ?>">
+
 </head>
 
 <?php /* kelas peran pada body untuk membedakan tampilan tiap akun */ ?>
@@ -20,6 +21,9 @@ $judul = $judul ?? 'CARMENT';
     <?php /* logo mengarah ke halaman utama sesuai peran */ ?>
     <header>
         <a class="brand" href="<?= BASE_URL . ($u ? halaman_utama($u['role']) : 'index.php') ?>">CAR<b>MENT</b></a>
+        <input type="checkbox" id="menu-tgl" class="burger-ck">
+        <label class="burger" for="menu-tgl" aria-label="Menu">☰</label>
+
         <nav>
             <?php /* menu Katalog hanya untuk pengunjung/pelanggan  */ ?>
             <?php if (!$u || $u['role'] === 'customer'): ?>
