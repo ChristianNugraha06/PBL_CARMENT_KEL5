@@ -1092,15 +1092,19 @@ dialog::backdrop {
   }
   
 }
+.burger-ck { display: none; }
 .burger { display: none; margin-left: auto; background: none; border: 1px solid #ffffff55;
   color: #fff; border-radius: 8px; font-size: 1.3rem; padding: .15rem .6rem; cursor: pointer; }
 
 @media (max-width: 720px) {
   header { padding: .6rem 1rem; }
-  .burger { display: block; }
-  header:not(.open) > :not(.brand):not(.burger) { display: none; }
-  header.open nav { flex-direction: column; flex-basis: 100%; gap: .6rem; }
-  header.open nav a { padding: .35rem 0; }
+  .burger { display: grid; place-items: center; }
+  .burger-ck:not(:checked) ~ nav,
+  .burger-ck:not(:checked) ~ .peran,
+  .burger-ck:not(:checked) ~ .user-link,
+  .burger-ck:not(:checked) ~ .btn { display: none !important; }
+  .burger-ck:checked ~ nav { flex-direction: column; flex-basis: 100%; gap: .6rem; }
+  .burger-ck:checked ~ nav a { padding: .35rem 0; }
 
   .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; }
   .tbl tr:has(> th) { display: none; }
@@ -1111,4 +1115,6 @@ dialog::backdrop {
     color: var(--mut); text-align: left; }
   main { padding: 1rem .75rem 2.5rem; }
 }
+
+
 
